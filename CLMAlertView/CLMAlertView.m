@@ -103,8 +103,11 @@ static const CGFloat kCLMAlertViewWidth = 260.0f;
 	_messageFont = [UIFont systemFontOfSize:14];
 	_buttonFont = [UIFont systemFontOfSize:17];
 	_buttonImage = nil;
+    _buttonHighlightedImage = nil;
 	_buttonBackgroundColor = [UIColor clearColor];
+    _buttonHighlightedBackgroundColor = [UIColor colorWithWhite:.75 alpha:.9];
 	self.backgroundColor = [UIColor colorWithWhite:.9 alpha:.9];
+    
 }
 
 #pragma mark - Builders
@@ -231,6 +234,8 @@ static const CGFloat kCLMAlertViewWidth = 260.0f;
 	[newButton.titleLabel setFont:self.buttonFont];
     [newButton setBackgroundColor:self.buttonBackgroundColor];
 	[newButton setTitleColor:self.tintColor forState:UIControlStateNormal];
+    [newButton setBackgroundImage:self.buttonImage forState:UIControlStateNormal];
+    [newButton setBackgroundImage:self.buttonHighlightedImage forState:UIControlStateHighlighted];
     [newButton addTarget:self action:@selector(buttonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     [newButton addTarget:self action:@selector(buttonTouchUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
     [newButton addTarget:self action:@selector(buttonTouchDragExit:) forControlEvents:UIControlEventTouchDragExit];
@@ -348,7 +353,7 @@ static const CGFloat kCLMAlertViewWidth = 260.0f;
 
 - (void)buttonTouchDownInside:(UIButton *)sender
 {
-    [sender setBackgroundColor:[UIColor colorWithWhite:.75 alpha:.9]];
+    [sender setBackgroundColor:self.buttonHighlightedBackgroundColor];
 }
 
 - (void)buttonTouchDragExit:(UIButton *)sender
@@ -358,7 +363,7 @@ static const CGFloat kCLMAlertViewWidth = 260.0f;
 
 - (void)buttonTouchDragEnter:(UIButton *)sender
 {
-    [sender setBackgroundColor:[UIColor colorWithWhite:.75 alpha:.9]];
+    [sender setBackgroundColor:self.buttonHighlightedBackgroundColor];
 }
 
 #pragma mark - Custom Setters

@@ -45,7 +45,9 @@ typedef void(^CLMAlertViewDismissAnimationCompletion)(CLMAlertView * alertView);
 @property (nonatomic, strong) UIFont *titleFont UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIFont *messageFont UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIImage *buttonImage UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIImage *buttonHighlightedImage UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *buttonBackgroundColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *buttonHighlightedBackgroundColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIFont *buttonFont UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *seperatorColor UI_APPEARANCE_SELECTOR;
 @end
